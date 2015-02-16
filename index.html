@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Git/GitHub — Vermont Works for Women, Step Up to IT</title>
+
+		<meta name="description" content="Presentation on Intro to Git/GitHub for Vermont Works for Women Step Up to IT">
+		<meta name="author" content="Rachael Arnold">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="reveal/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<style>
+			.reveal img.plain { border: none; box-shadow: none; margin:none; }
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Intro to Git and GitHub</h1>
+					<h3>Version Control and Collaboration for Any Project</h3>
+					<p>
+						<small><a href="http://www.rachaelarnold.com">Rachael Arnold</a> • <a href="http://twitter.com/raevenfea">@raevenfea</a> • <a href="mailto:rae.arnold@gmail.com">rae.arnold@gmail.com</a></small>
+						<br>
+						<small>Vermont Works for Women • Step Up to IT</small>
+					</p>
+				</section>
+				
+				<section>
+					<h2>What is <img src="images/git-logo.png" height="100" alt="Git" style="vertical-align:middle;" class="plain">?</h2>
+					<p>Git is an open-source, <strong>distributed version control system</strong>. It:</p>
+					<ul>
+						<li>tracks changes to documents</li>
+						<li>makes collaboration easy</li>
+						<li>keeps copies on every users's computer</li>
+						<li>makes recovering previous changes possible</li>
+						<li>and more…</li>
+					</ul>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Interacting with Git</h3>
+						<p>Command Line Interface (CLI)</p>
+						<img src="images/git-cli-screen.png" class="plain" alt="Git in Terminal">
+					</section>
+					<section>
+						<h3>Interacting with Git</h3>
+						<p>Graphical User Interface (GUI)</p>
+						<img src="images/git-gui-screen.png" class="plain" alt="GitHub for Mac">
+					</section>
+				</section>
+
+				<section>
+					<h2>What is <img src="images/github-logo.jpg" height="75" alt="GitHub" style="vertical-align:middle;" class="plain">?</h2>
+					<p>GitHub is a web-based host for Git <strong>repositories</strong> and:</p>
+					<ul>
+						<li>allows users to collaborate</li>
+						<li>makes open-source code changes simple</li>
+						<li>has a built-in bug tracker</li>
+						<li>hosts simple websites from your repositories</li>
+						<li>and much, much more…</li>
+					</ul>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Interacting with GitHub</h3>
+						<p>Browser (<a href="http://github.com">GitHub.com</a>)</p>
+						<img src="images/github-home-screen.png" class="plain" alt="GitHub Home Screenshot">
+					</section>
+					<section>
+						<h3>Interacting with GitHub</h3>
+						<p>Browser (view of a project page)</p>
+						<img src="images/github-screen.png" class="plain" alt="GitHub Screenshot">
+					</section>
+				</section>
+				
+				<section>
+					<h2>Keeping it all straight:</h2>
+					
+					<p>We're using GitHub’s GUI for Git in this workshop. <br>A bit confusing, right? If it helps:</p>
+					
+					<p><strong>Things in the desktop application:</strong> <br>Git <br>(all about version control)</p>
+					<p><strong>Things in browser:</strong> <br>GitHub <br>(collaborating with the outside world)</p>
+				</section>
+				
+				<section>
+					…
+				</section>
+				
+				<section>
+					<h2>Lab Time</h2>
+					<ul>
+						<li>Fix one typo in this presentation and submit a pull request</li>
+						<li>Create your own repository with a README.md and push to GitHub</li>
+						<li>Find something interesting, fork it, check out your fork locally</li>
+					</ul>
+					<p>and</p>
+					<h2>Questions?</h2>
+				</section>
+				
+			</div>
+
+		</div>
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
