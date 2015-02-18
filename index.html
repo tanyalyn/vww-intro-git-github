@@ -34,7 +34,13 @@
 		<![endif]-->
 		
 		<style>
-			.reveal img.plain { border: none; box-shadow: none; margin:none; }
+			.reveal img.plain { border: none; box-shadow: none; margin:0; }
+			.reveal p + img.plain, .reveal p + pre { margin-top: -1em; }
+			.reveal code span { color: lime; }
+			.columns { margin-left: 0; }
+			.columns li { list-style-position: inside; }
+			.columns-count-2 { -webkit-column-count: 2; column-count: 2; }
+			.columns-count-3 { -webkit-column-count: 3; column-count: 3; }
 		</style>
 	</head>
 
@@ -60,8 +66,9 @@
 					<ul>
 						<li>tracks changes to documents</li>
 						<li>makes collaboration easy</li>
-						<li>keeps copies on every users's computer</li>
+						<li>keeps copies on every users’s computer</li>
 						<li>makes recovering previous changes possible</li>
+						<li>helps with worry-free experimenting</li>
 						<li>and more…</li>
 					</ul>
 				</section>
@@ -69,13 +76,13 @@
 				<section>
 					<section>
 						<h3>Interacting with Git</h3>
-						<p>Command Line Interface (CLI)</p>
-						<img src="images/git-cli-screen.png" class="plain" alt="Git in Terminal">
+						<p>Graphical User Interface (GUI)</p>
+						<img src="images/git-gui-screen.png" class="plain" alt="GitHub for Mac">
 					</section>
 					<section>
 						<h3>Interacting with Git</h3>
-						<p>Graphical User Interface (GUI)</p>
-						<img src="images/git-gui-screen.png" class="plain" alt="GitHub for Mac">
+						<p>Command Line Interface (CLI)</p>
+						<img src="images/git-cli-screen.png" class="plain" alt="Git in Terminal">
 					</section>
 				</section>
 
@@ -99,7 +106,8 @@
 					</section>
 					<section>
 						<h3>Interacting with GitHub</h3>
-						<p>Browser (view of a project page)</p>
+						<!-- typo to fix! -->
+						<p>Bowser (view of a project page)</p>
 						<img src="images/github-screen.png" class="plain" alt="GitHub Screenshot">
 					</section>
 				</section>
@@ -110,19 +118,438 @@
 					<p>We're using GitHub’s GUI for Git in this workshop. <br>A bit confusing, right? If it helps:</p>
 					
 					<p><strong>Things in the desktop application:</strong> <br>Git <br>(all about version control)</p>
-					<p><strong>Things in browser:</strong> <br>GitHub <br>(collaborating with the outside world)</p>
+					<p><strong>Things in the browser:</strong> <br>GitHub <br>(collaborating with the outside world)</p>
 				</section>
 				
 				<section>
-					…
+					<h2>Git Basics</h2>
+					<p>Commands we’re going to learn:</p>
+					<ol class="columns columns-count-2">
+						<li><a href="#/git-init">Init</a></li>
+						<li><a href="#/git-add">Add</a></li>
+						<li><a href="#/git-status">Status</a></li>
+						<li><a href="#/git-commit">Commit</a></li>
+						<li><a href="#/git-reset">Reset</a></li>
+						<li><a href="#/git-log">Log</a></li>
+						<li><a href="#/git-branch">Branch</a></li>
+						<li><a href="#/git-checkout">Checkout</a></li>
+						<li><a href="#/git-merge">Merge</a></li>
+					</ol>
+					<p><small>Note: the following examples show both the GUI and CLI versions for reference, but don’t mix them when you’re working or you’ll end up with weird errors.</small></p>
+				</section>
+				
+				<section>
+					<p>Please follow along on your own computer, and ask questions if you’re stuck!</p>
+				</section>
+				
+				<section>
+					<section id="git-init">
+						<!-- typo to fix! -->
+						<h3>Start Your Projekt (<code>init</code>)</h3>
+						<p><small>GUI</small></p>
+
+						<img src="images/git-init.png" alt="Creating a repo in GitHub for Mac" class="plain">
+
+					</section>
+					<section id="git-init">
+						<h3>Git Basics: <code>init</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git init</span></code></pre>
+
+					</section>
+				</section>
+				<section>
+					<section id="git-add">
+						<h3>Tell Git About Changes (<code>add</code>)</h3>
+						<p><small>Create a <code>README.md</code> and save to your project directory</small></p>
+						<p>We call this <strong>staging</strong> files.</p>
+						<p><small>GUI—Check the box next to files with changes you want to commit.</small></p>
+						<img src="images/git-add.png" alt="Adding files in GitHub for Mac" class="plain">
+					</section>
+					<section id="git-add">
+						<h3>Git Basics: <code>add</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git add README.md</span></code></pre>
+					</section>
+				</section>
+				<section>
+					<section id="git-status">
+						<h3>What’s Going on Right Now? (<code>status</code>)</h3>
+						<p><small>GUI—you don’t have to do anything but look</small></p>
+
+						<img src="images/git-status.png" alt="Checking status in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>status</code></h3>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git status</span>
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   README.md
+hello-world$
+	</code></pre>
+					</section>
+				</section>				
+
+				<section>
+					<section id="git-commit">
+						<h3>Tell Git to Save Your Changes (<code>commit</code>)</h3>
+						
+						<p><small>GUI—type a summary and hit <code>Commit</code></small></p>
+						<img src="images/git-commit.png" alt="Committing in GitHub for Mac" class="plain">
+
+					</section>		
+					<section>
+						<h3>Git Basics: <code>commit</code></h3>
+						<p>The <code>status</code> after commit</p>
+						<!-- typo to fix! -->
+						<p><small>BUI</small></p>
+						<img src="images/git-commit-status.png" alt="Committing in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>commit</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git commit -m "Adding README.md"</span></code></pre>
+					</section>
+					<section>
+						<h3>Git Basics: <code>commit</code></h3>
+						<p>The <code>status</code> after commit</p>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git status</span>
+On branch master
+nothing to commit, working directory clean
+hello-world$ 
+</code></pre>
+					</section>
+
+				</section>
+
+					
+				<section>
+					<section id="git-reset">
+						<h3>How Do I Commit Only Some Files?</h3>
+						<p><small>GUI—uncheck what you don’t want before you commit</small></p>
+
+						<img src="images/git-reset.png" alt="Unstaging a file in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>reset</code></h3>
+						<p>The <code>status</code> after committing—README.md still contains changes, but hasn't been committed.</p>
+						<p><small>GUI</small></p>
+						<img src="images/git-reset-status.png" alt="Resetting in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>reset</code></h3>
+						<p>In the CLI, <code>add</code> only the files you want to commit. If you add a file you don’t want to commit, use <code>reset</code> to <strong>unstage</strong> the file.</p>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git add README.md</span>
+hello-world$  <span>git add my-image.png</span>
+hello-world$  <span>git reset HEAD README.md</span>
+Unstaged changes after reset:
+M	README.md
+hello-world$
+	</code></pre>
+					</section>
+
+					<section>
+						<h3>Git Basics: <code>reset</code></h3>
+						<p>The <code>status</code> after reset. Note that <code>status</code> provides helpful reminders for how to add or remove files from the staging area.</p>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git status</span>
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   my-image.png
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   README.md
+hello-world$ 
+</code></pre>
+					</section>
+				</section>						
+
+				<section>
+					<section id="git-log">
+						<!-- typo to fix! -->
+						<h3>Show Me What I’ve Dun (<code>log</code>)</h3>
+						
+						<p><small>GUI</small></p>
+
+						<img src="images/git-log.png" alt="Checking log in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>log</code></h3>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git log</span>
+commit e52416ead5588a1a8e8304d4523729a4dd3a9cf3
+Author: Rachael Arnold <rae.arnold@gmail.com>
+Date:   Mon Feb 16 22:32:05 2015 -0500
+
+    Update README.md
+
+commit 5dd358670179622c7640182439837d67883f8882
+Author: Rachael Arnold <rae.arnold@gmail.com>
+Date:   Mon Feb 16 22:27:44 2015 -0500
+
+    Add my-image.png
+
+commit 24d8c59bc4a6c817721412762c29e2454626d1d1
+Author: Rachael Arnold <rae.arnold@gmail.com>
+Date:   Mon Feb 16 21:54:14 2015 -0500
+
+    Adding README.md
+:<span>q</span>
+</code></pre>
+					</section>
+					
+				</section>
+
+<!--
+				<section>
+					<h3>Git Basics: <code>commit</code> hashes</h3>
+
+					<p>As we saw in the log, each commit has a <strong>hash</strong></p>
+
+					<p><code>e52416ead5588a1a8e8304d4523729a4dd3a9cf3</code></p>
+					<p><code>e52416e</code></p>
+
+					<p>This is a unique identifier for your commit.</p>
+				</section>
+-->
+
+				<section id="git-branch">
+					<h3>Git Basics: Branching</h3>
+					<p>Branches make it simple to work on experiments, major content changes, or bug fixes without danger of messing up existing work. You can continue to commit, but it won't change your main code base.</p>
+					<img src="images/branching.png" alt="Branching in GitHub for Mac" class="plain">
+				</section>
+
+				<section>
+					<section>
+						<h3>How Do I Experiment? (<code>branch</code>)</h3>
+						<p><small>GUI</small></p>
+						<img src="images/git-branch-1.png" alt="Branching in GitHub for Mac" class="plain">
+						<img src="images/git-branch-2.png" alt="Branching log in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>branch</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git branch my-experiment</span></code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section id="git-checkout">
+						<h3>How Do I Switch Branches? (<code>checkout</code>)</h3>
+						<p><small>GUI</small></p>
+						<img src="images/git-checkout.png" alt="Checking out branches in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>checkout</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git checkout master</span></code></pre>
+					</section>
+				</section>				
+
+				<section id="git-merge">
+					<h3>Git Basics: Merging</h3>
+					<p>Branches aren't much help if they live off on their own forever. Merging allows you to integrate changes from one branch into another.</p>
+					<img src="images/merging.png" alt="Merging in GitHub for Mac" class="plain">
+				</section>
+
+				<section>
+					<section>
+						<h3>How Do I Incorporate Changes? (<code>merge</code>)</h3>
+						<p><small>GUI</small></p>
+						<img src="images/git-merge-1.png" alt="Merging in GitHub for Mac" class="plain">
+						<img src="images/git-merge-2.png" alt="Merging log in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>merge</code></h3>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git checkout master</span>
+hello-world$  <span>git merge my-experiment</span></code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Oh no, conflicts!</h3>
+						<p><small>GUI</small></p>
+						<img src="images/git-merge-conflicts.png" alt="Merge conflicts in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<!-- typo to fix! -->
+						<h3>Git Bass: <code>merge</code> conflicts</h3>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$ <span>git status</span>
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+hello-world$</code></pre>
+					</section>
+				</section>	
+
+				<section>
+					<section>
+						<h3>Resolving Conflicts</h3>
+						<p>To resolve conflicts, edit them in your normal file editor. Make sure to remove all <strong>merge flags</strong></p>
+						<img src="images/git-merge-conflicts-file.png" alt="Merge conflicts in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Resolving Conflicts</h3>
+						<img src="images/git-merge-conflicts-resolved.png" alt="Merge conflicts in GitHub for Mac" class="plain">
+					</section>
+				</section>	
+
+				<section>
+					<section>
+						<h3>Finalizing the Merge</h3>
+						<p>Once you've resolved all the conflicts, <code>commit</code> the changes</p>
+						<p><small>GUI</small></p>
+						<img src="images/git-merge-fixed.png" alt="Merge conflicts in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<!-- typo to fix! -->
+						<h3>Finalizing thrge</h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$ <span>git commit -a -m "Merge branch 'my-experiment'"</code></pre>
+						<p>The <code>-a</code> is a shortcut for <code>git add</code> all the files with changes.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Collaborating</h2>
+					<h3>…where GitHub comes in</h3>
+				</section>
+				
+				<section>
+					<h3>GitHub Basics</h3>
+					<ol>
+						<li><a href="#/github-remotes">Setting Up Remotes</a><br>
+						<small>Publishing your repository, and syncing changes</small></li>
+						<li><a href="#/github-forking">Forking Projects</a><br>
+						<small>Making a copy of open-source projects for your own use</small></li>
+						<li><a href="#/github-pull-requests">Creating Pull Requests</a><br>
+						<small>Submitting changes to other people’s repos</small></li>
+					</ol>
+				</section>
+
+				<section>
+					<section id="github-remotes">
+						<h3>Publishing Remotely (<code>push</code>)</h3>
+						<p>Share your code with others by publishing to a remote (in this case, GitHub)</p>
+						<p><small>GUI</small></p>
+
+						<img src="images/github-publish.png" alt="Publishing to a remote in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>remote</code>, <code>push</code></h3>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git remote add origin git@github.com:username/hello-world</span></code></pre>
+						<pre><code>hello-world$  <span>git push origin master</span></code></pre>
+					</section>
+				</section>				
+
+				<section>
+					<h3>Publishing Remotely</h3>
+					<p>Check it out in the browser on GitHub</p>
+					<img src="images/github-published.png" alt="Publishing to a remote in GitHub for Mac" class="plain">
+				</section>
+
+				<section>
+					<h3>Publishing Remotely</h3>
+					<p>You can even edit some files online</p>
+					<img src="images/github-editing.png" alt="Publishing to a remote in GitHub for Mac" class="plain">
+				</section>
+
+				<section>
+					<section>
+						<h3>Getting Remote Changes (<code>pull</code>)</h3>
+						<p>When other changes are made (by you online, or by others who've pushed), you need to <code>pull</code> your changes.</p>
+						<!-- typo to fix! -->
+						<p><small>GUI—GitHub Desktop. makes it easy by changing Publish to <strong>Sync</strong></small></p>
+
+						<img src="images/github-sync.png" alt="Syncing from a remote in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>pull</code></h3>
+						<p><small>CLI</small></p>
+<pre><code>hello-world$  <span>git pull</span>
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/raearnold/hello-world
+   88c0549..0ede7f1  master     -> origin/master
+Updating 88c0549..0ede7f1
+Fast-forward
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+ hello-world$</code></pre>
+					</section>
+				</section>	
+
+				<section>
+					<section id="github-forking">
+						<h3>Forking Projects</h3>
+						<p>Copy projects and work on them in your own repo</p>
+						<p><small>Browser</small></p>
+						<img src="images/github-forking.png" alt="Forking in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>clone</code></h3>
+						<!-- typo to fix! -->
+						<p>Once you’ve fed a project, <code>clone</code> it locally</p>
+						<p><small>GUI</small></p>
+						<img src="images/git-clone.png" alt="Cloning in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Git Basics: <code>clone</code></h3>
+						<p><code>fork</code> is unique to GitHub; it’s all about permissions, as you can't contribute directly to repos that you haven't been granted access to. So, <code>fork</code> in the browser.</p>
+						<p>Then <code>clone</code> the forked repository to your local machine.</p>
+						<p><small>CLI</small></p>
+						<pre><code>hello-world$  <span>git clone https://github.com/raearnold/reveal.js.git</span></code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section id="github-pull-requests">
+						<h3>Submitting Changes to Other Projects</h3>
+						<p>Once you've commited changes, you can ask the owners of the repositories to include your changes via a <strong>pull request</strong>.</p>
+						<p><small>GUI</small></p>
+						<img src="images/github-pull-request.png" alt="Pull requests in GitHub for Mac" class="plain">
+					</section>
+					<section>
+						<h3>Pull Requests</h3>
+						<p>Managing requests is beyond the basics, but this is what the request looks like in-browser.</p>
+						<!-- typo to fix! -->
+						<p><small>Mario</small></p>
+						<img src="images/github-pull-req-browser.png" alt="Pull Requests in GitHub for Mac" class="plain">
+					</section>
 				</section>
 				
 				<section>
 					<h2>Lab Time</h2>
 					<ul>
-						<li>Fix one typo in this presentation and submit a pull request</li>
-						<li>Create your own repository with a README.md and push to GitHub</li>
-						<li>Find something interesting, fork it, check out your fork locally</li>
+						<!-- typo to fix! -->
+						<li>Fix one typo in this presetion and submit a pull request. You can do this through the browser if you prefer.</li>
+						<li>Find something interesting, fork it, check out your fork locally.</li>
 					</ul>
 					<p>and</p>
 					<h2>Questions?</h2>

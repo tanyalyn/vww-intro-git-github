@@ -1,5 +1,9 @@
 # Intro to Git and GitHub
-Presentation and supporting assets for the Vermont Works for Women SUIT Intro to Git and GitHub workshop
+Presentation and supporting assets for the Vermont Works for Women SUIT Intro to Git and GitHub workshop.
+
+We’re using GitHub’s desktop application) for Git, so the difference between Git and GitHub may seem blurry. If it helps keep things straight in your head, the things we do in the desktop application are Git things—we could do them through the command line as well, and they are all about version control. Things we do through the browser will be unique to GitHub, and will focus more on collaborating with the world outside your project.
+
+We won't cover the command line interface (CLI) in the workshop, but the slide deck contains the commands you need, in case you want to explore using the CLI in the future.
 
 ## What is Git?
 
@@ -17,40 +21,56 @@ At its most basic, GitHub is a web-based hosting service for Git **repositories*
 
 GitHub also allows you to host basic websites directly from your repositories. This is how we manage the Vermont Works for Women SUIT page.
 
-For this workshop, we've installed GitHub’s desktop application for Git, so the difference between Git and GitHub may seem blurry. If it helps keep things straight in your head, the things we do in the desktop application are Git things—we could do them through the command line as well, and they are all about version control. Things we do through the browser will be unique to GitHub, and will focus more on collaborating with the world outside your project.
-
 ## Git Basics
 
-### Initialize a Repo
+Commands we learn:
 
-### Status
-
-### Add files
-- staging
-
-### Commit
-- hashes
-
-### Log
-
-
-### Branches
--gh-pages
-
-### Merges
+- Init
+- Add
+- Status
+- Commit
+- Reset
+- Log
+- Branch
+- Checkout
+- Merge
 
 ## Collaboration
 
-### Setting up remotes
+### Setting Up Remotes
+So far, everything we've done has been on our own computer. There's not much collaboration.
+
+This is where GitHub comes in. If we connect our local repository to a remote repo hosted by GitHub, suddenly we can share our code with others and work together.
+
+Commands involved:
+
+- Push
+- Pull
+- Remote
 
 ### Forking
+GitHub only allows designated collaboraters to commit changes directly to a repository. 
+
+If you want to commit to someone else's repo, or want to use one as a starting point for your own project, you have to **fork** it through GitHub.
+
+Once you've forked it, you can clone it to your your computer and work on it using all the skills we've learned so far.
+
+Commands involved:
+
+- Clone
 
 ### Pull Requests
+Once you've commited changes, you can use **pull requests** to ask the original project’s collaborators to incorporate your changes into their repository.
+
+Things to keep in mind:
+
+- Always read READMEs and any code standards documents in the project, and follow the guidelines they set
+- Thoroughly test your changes before submitting a pull request
+- If you're fixing a bug, make sure you connect the pull request to a bug reported on GitHub. If one doesn't exist, file it first, then fix it
 
 ## Lab Time
 
 - Fix one typo in this presentation and submit a pull request
-- Create your own repository with a README.md and push to github
 - Find something interesting, fork it, check out your fork locally
 
 ## Resources
