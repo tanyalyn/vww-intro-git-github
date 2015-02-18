@@ -1,6 +1,8 @@
 # Intro to Git and GitHub
 Presentation and supporting assets for the Vermont Works for Women SUIT Intro to Git and GitHub workshop.
 
+See the repo we built in the slides here: [raearnold/hello-world](https://github.com/raearnold/hello-world)
+
 We’re using GitHub’s desktop application) for Git, so the difference between Git and GitHub may seem blurry. If it helps keep things straight in your head, the things we do in the desktop application are Git things—we could do them through the command line as well, and they are all about version control. Things we do through the browser will be unique to GitHub, and will focus more on collaborating with the world outside your project.
 
 We won't cover the command line interface (CLI) in the workshop, but the slide deck contains the commands you need, in case you want to explore using the CLI in the future.
